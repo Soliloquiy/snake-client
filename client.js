@@ -7,6 +7,11 @@ const connect = function () {
     port: 50542
   });
 
+  conn.on('connect', () => {
+    console.log('Successfully connected to server')
+    conn.write('Name: AAA')
+  })
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
