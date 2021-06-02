@@ -6,14 +6,24 @@ const connect = function () {
     host: "135.23.222.131",
     port: 50542
   });
-
-  conn.on('connect', () => {
-    console.log('Successfully connected to server')
-    conn.write('Name: AAA')
-  })
+  
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
+
+  conn.on('connect', () => {
+    console.log('Successfully connected to server')
+    // conn.write('Name: AAA')
+    // conn.write('Move: up')
+    // conn.write('Move: left')
+    
+    // setTimeout(() => {conn.write('Move: up')}, 3000)
+    setTimeout(() => {
+      conn.write('Move: down')
+      // console.log('working')
+    }, 1000);
+  })
+
 
   // create event handler to handle incoming data
   conn.on('data', (data) => {
@@ -23,6 +33,4 @@ const connect = function () {
   return conn;
 };
 
-console.log("Connecting ...");
-
-module.exports = connect
+module.exports = {connect}
