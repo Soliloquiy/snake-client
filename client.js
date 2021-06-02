@@ -7,21 +7,12 @@ const connect = function () {
     port: 50542
   });
   
-
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   conn.on('connect', () => {
     console.log('Successfully connected to server')
-    // conn.write('Name: AAA')
-    // conn.write('Move: up')
-    // conn.write('Move: left')
     
-    // setTimeout(() => {conn.write('Move: up')}, 3000)
-    setTimeout(() => {
-      conn.write('Move: down')
-      // console.log('working')
-    }, 1000);
   })
 
 
@@ -33,4 +24,4 @@ const connect = function () {
   return conn;
 };
 
-module.exports = {connect}
+module.exports = { connect }
